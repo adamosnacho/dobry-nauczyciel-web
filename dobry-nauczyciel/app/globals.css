@@ -1,0 +1,160 @@
+:root {
+  --foreground-rgb: #8ba2fc;
+  --foreground-rgb-second: #6686e6;
+  --foreground-rgb-third: #5174dd;
+  --background-rgb: #FFFFFF;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+body {
+  overscroll-behavior: none;
+  padding: 0px;
+}
+
+.navBar {
+  border-width:15px;
+  border: var(--foreground-rgb-third);
+  border-style: solid;
+  margin-left: 50%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--foreground-rgb-third);
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.navBarContainer {
+  background-color: var(--foreground-rgb-third);
+  border-radius: 5px;
+  margin: 5px;
+  border-color: var(--foreground-rgb);
+  border-width: 5px;
+  border-style: solid;
+  transition: max-height 0.3s ease, transform 0.3s ease; /* Add transition for smooth animation */
+  max-height: 0; /* Initially hidden state */
+  overflow: hidden;
+  
+}
+
+.navBar.expanded .navBarContainer {
+  max-height: 1000px; /* Display when expanded */
+  
+}
+
+.navBarButton {
+  background-color: transparent;
+  margin: 0px;
+  border: 0px;
+  display: flex;
+  justify-content: space-between;
+  filter: invert();
+  padding-right: auto;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.navBarButton.clicked {
+  transform: translateY(30px) rotate(90deg); /* Move buttons when clicked */
+}
+
+.navBar.expanded .navBarButton {
+  transform: translateY(0) rotate(0deg); /* Reset button position when expanded */
+}
+
+.navBarLabel {
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+.border {
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 5px;
+  border-radius: 5px;
+  background-color: var(--foreground-rgb-second);
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  padding-top: 30px;
+}
+
+.buttonLines {
+  width: 5px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--foreground-rgb);
+  margin-left: 5px; /* Adjust as needed for spacing */
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.buttonContainer.clicked .buttonLines:nth-child(1) {
+  transform: translateY(30px) rotate(90deg) translateX(-20px);
+}
+
+.buttonContainer.clicked .buttonLines:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.buttonContainer.clicked .buttonLines:nth-child(3) {
+  transform: translateY(-30px) rotate(90deg) translateX(20px);
+}
+
+.head {
+  color: white;
+  margin-left: 15px;
+}
+
+.topBar {
+  background-color: var(--foreground-rgb-third);
+  display: flex;
+  padding-bottom: 0;
+}
+
+
+.searchArea {
+  height: 37px;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 26px;
+  resize: none;
+  border-radius: 5px;
+  border-width: 0;
+  width: 300px;
+  margin-bottom: 0;
+  padding-left: 10px;
+  color: var(--foreground-rgb-second);
+}
+.searchArea::placeholder {
+  color: var(--foreground-rgb);
+}
+.searchBar {
+  color: white;
+  background-color: var(--foreground-rgb-second);
+  padding-bottom: 0px;
+  margin: 10px;
+  margin-top: 100px;
+  border-radius: 5px;
+  border-color: var(--foreground-rgb-third);
+  display: flex;
+  width:fit-content;
+}
+.searchLabel {
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+}
